@@ -32,6 +32,8 @@
 #include "linuxutils.h"
 #include <settings.h>
 
+#include <iostream>
+
 void loadTranslations(
         std::initializer_list<std::pair<QStringList, QString>> translationConfigs)
 {
