@@ -69,10 +69,20 @@
 
 #include <set>
 
+#include <iostream>
+
 using Quotient::NetworkAccessManager;
 using Quotient::Settings;
 using Quotient::AccountSettings;
 using Quotient::Uri;
+
+void MainWindow::resizeEvent(QResizeEvent *newSize)
+{
+    int num = 42;
+    num = 210;
+    num = num + num;
+    std::cout << "El valor de num es: " << num << "\n";
+}
 
 MainWindow::MainWindow()
 {

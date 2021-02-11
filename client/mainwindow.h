@@ -80,6 +80,9 @@ class MainWindow: public QMainWindow, public Quotient::UriResolverBase {
         void openRoomSettings(QuaternionRoom* r = nullptr);
         void selectRoom(Quotient::Room* r);
         void logout(Connection* c);
+        
+    protected:
+        void resizeEvent(QResizeEvent *newSize) override;
 
     private slots:
         void invokeLogin();
