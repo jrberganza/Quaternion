@@ -62,6 +62,7 @@ void loadTranslations(
 
 int main( int argc, char* argv[] )
 {
+    std::cout << "alo c++ porfa no se rian\n";
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
     QApplication::setAttribute(Qt::AA_DisableWindowContextHelpButton);
 #endif
