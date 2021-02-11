@@ -57,6 +57,8 @@
 #include "chatedit.h"
 #include "htmlfilter.h"
 
+#include <iostream>
+
 static const auto DefaultPlaceholderText =
         ChatRoomWidget::tr("Choose a room to send messages or enter a command...");
 
@@ -648,6 +650,15 @@ QString ChatRoomWidget::sendCommand(const QStringRef& command,
 
 void ChatRoomWidget::sendInput()
 {
+    std::string texto = m_chatEdit->toPlainText().toStdString();
+
+    size_t size = texto.size();
+    size_t actual = 0;
+    while (actual < size) {
+        std::cout << "#" << actual << " => " << texto[actual] << "\n";
+        actual++;
+    }
+
     if (!attachedFileName.isEmpty())
         sendFile();
     else {
