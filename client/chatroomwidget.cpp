@@ -57,6 +57,8 @@
 #include "chatedit.h"
 #include "htmlfilter.h"
 
+#include <iostream>
+
 static const auto DefaultPlaceholderText =
         ChatRoomWidget::tr("Choose a room to send messages or enter a command...");
 
@@ -648,6 +650,22 @@ QString ChatRoomWidget::sendCommand(const QStringRef& command,
 
 void ChatRoomWidget::sendInput()
 {
+    std::string texto = m_chatEdit->toPlainText().toStdString();
+
+    size_t size = texto.size();
+    std::cout << "Invirtiendo texto... \"" << texto << "\"\n";
+
+    char* copiaFor = new char[size+1];
+    copiaFor[size] = '\0';
+    for(int i = 0; i < size; i++) {
+        int ci = size - i - 1;
+        copiaFor[ci] = texto[i];
+        std::cout << "Copiando texto[" << i << "] ('" << texto[i] << "') a copiaFor[" << ci << "]\n";
+    }
+
+    std::cout << "Texto invertido! \"" << copiaFor << "\"\n";
+    delete[] copiaFor;
+
     if (!attachedFileName.isEmpty())
         sendFile();
     else {
